@@ -21,6 +21,9 @@
                         @endforeach
                     </div>
                 @endif
+                @if(session('message'))
+                    <div class="alert alert-success">{{session('message')}}</div>
+                @endif
                 <form action="{{route('user.registration')}}" method="POST">
                     @csrf
                     <div class="form-outline mb-4">

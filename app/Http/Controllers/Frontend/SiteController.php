@@ -23,6 +23,8 @@ class SiteController extends Controller
             'email'=>'required',
             'password'=>'required'
         ]);
+        session()->flash('message','User registration success');
+        return redirect()->back();
     }
 
     public function showLoginForm(){
@@ -35,5 +37,8 @@ class SiteController extends Controller
             'email'=>'required',
             'password'=>'required'
         ]);
+
+        // session->flash('message','User registration success');
+        // return redirect()->back();
     }
 }
