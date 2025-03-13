@@ -24,10 +24,10 @@
                 @if(session('message'))
                     <div class="alert alert-success">{{session('message')}}</div>
                 @endif
-                <form action="{{route('user.registration')}}" method="POST">
+                <form action="{{route('user.registration')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-outline mb-4">
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control form-control-lg" />
+                        <input type="text" name="name" value="{{old('name')}}" placeholder="Enter your name" class="form-control form-control-lg" />
                         <label class="form-label">Your Name</label><br>
                         @error('name')
                             <span class="text-danger font-italic">{{$message}}</span>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="email" name="email" value="{{old('email')}}" class="form-control form-control-lg" />
+                        <input type="email" name="email" value="{{old('email')}}" placeholder="Enter your email" class="form-control form-control-lg" />
                         <label class="form-label">Your Email</label><br>
                         @error('email')
                             <span class="text-danger font-italic">{{$message}}</span>
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" name="password" value="{{old('password')}}" class="form-control form-control-lg" />
+                        <input type="password" name="password" value="{{old('password')}}" placeholder="Enter password" class="form-control form-control-lg" />
                         <label class="form-label">Password</label><br>
                         @error('password')
                             <span class="text-danger font-italic">{{$message}}</span>
@@ -51,9 +51,17 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" name="confirm_password" value="{{old('confirm_password')}}" class="form-control form-control-lg" />
+                        <input type="password" name="confirm_password" value="{{old('confirm_password')}}" placeholder="Repeat your password" class="form-control form-control-lg" />
                         <label class="form-label">Repeat your password</label><br>
                         @error('confirm_password')
+                            <span class="text-danger font-italic">{{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="photo">
+                        <label class="form-label">Choice your photo</label><br>
+                        @error('photo')
                             <span class="text-danger font-italic">{{$message}}</span>
                         @enderror
                     </div>

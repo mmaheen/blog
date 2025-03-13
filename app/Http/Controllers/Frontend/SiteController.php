@@ -18,13 +18,20 @@ class SiteController extends Controller
 
     public function registration(Request $request){
         // dd ($request);
+        // dd ($request->file());
+        
         $request->validate([
             'name'=>'required',
-            'email'=>'required',
-            'password'=>'required'
+            'email'=>'required|email',
+            'password'=>'required|min:2|max:20',
+            'photo'=>'required|image'
         ]);
         session()->flash('message','User registration success');
         return redirect()->back();
+
+        $photo=$request->file();
+        $file_name=rand(1111,9999).date('Y-m-d_H-i-s').$photo->getClientOriginalExtension();
+        $photo->storeAs('images',$file_name);
     }
 
     public function showLoginForm(){
