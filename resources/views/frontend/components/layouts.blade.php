@@ -14,10 +14,15 @@
     <body>
         @include('frontend.components.header')
         <!-- Page content-->
-        <div class="container">
+        <div class="container mt-4 mb-4">
             <div class="row">
-                @yield('content')
-                @include('frontend.components.right-sidebar')
+                <div class="col-lg-8">
+                    @yield('content')
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    @include('frontend.components.right-sidebar')
+                </div>
             </div>
         </div>
         @include('frontend.components.footer')
