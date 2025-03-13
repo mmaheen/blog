@@ -6,8 +6,7 @@
 <!-- Blog entries-->
     <div class="col-lg-8">
         <!-- Featured blog post-->
-        <x-post></x-post>
-        <x-post></x-post>
+        <x-post title="Laravel"/>
         <!-- Nested row for non-featured blog posts-->
         <div class="row">
             <div class="col-lg-6">
