@@ -23,6 +23,7 @@ class CategorySeeder extends Seeder
 
             Category::create([
                 'name'=>$name,
+                'user_id'=>rand(1,11),
                 'slug'=>Str::slug($name, '-'),
                 'status'=>array_rand([
                     'active'=>'active',
