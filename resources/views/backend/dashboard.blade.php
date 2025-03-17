@@ -1,4 +1,7 @@
 @extends('backend.components.layouts')
+@section('title')
+    Blog
+@endsection
 @section('content')
 <main>
                     <div class="container-fluid px-4">
