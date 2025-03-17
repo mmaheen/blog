@@ -10,7 +10,7 @@ Route::post('/user/register',[SiteController::class,'registration'])->name('user
 Route::get('/user/login',[SiteController::class,'showLoginForm'])->name('user.loginform');
 Route::post('/user/login',[SiteController::class,'login'])->name('user.login');
 
-Route::get('/dashboard',[App\Http\Controllers\Backend\DashboardController::class,'index']);
+Route::get('/dashboard',[App\Http\Controllers\Backend\DashboardController::class,'index'])->name('admin-dashboard');
 
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('categories',CategoryController::class);
