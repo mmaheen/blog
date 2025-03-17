@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
         //
         $faker=Factory::create();
         foreach(range(1,10)as $index){
-            $name=substr($faker->paragraph,0,90);
+            $name=substr($faker->paragraph,0,40);
 
             Category::create([
                 'name'=>$name,

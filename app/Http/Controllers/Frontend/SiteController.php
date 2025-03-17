@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use Exception;
 
 use App\Models\User;
+use App\Models\Category;
 
 class SiteController extends Controller
 {
     //
     public function index(){
-        return view ('frontend.home');
+        $categories=Category::select('name')->get();
+        return view ('frontend.home',compact('categories'));
     }
 
     public function showRegisterForm(){
