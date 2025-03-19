@@ -18,6 +18,8 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'Mushrif Maheen Mugdha',
             'email'=>'mushrifmaheen@gmail.com',
+            'role'=>'admin',
+            'email_verified_at'=>now(),
             'password'=>'123'
         ]);
     }

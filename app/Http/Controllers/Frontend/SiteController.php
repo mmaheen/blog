@@ -14,7 +14,7 @@ class SiteController extends Controller
 {
     //
     public function index(){
-        $categories=Category::select('name')->get();
+        $categories=Category::select('name')->where('status','=','active')->get();
         return view ('frontend.home',compact('categories'));
     }
 
