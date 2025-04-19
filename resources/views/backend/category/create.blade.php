@@ -18,7 +18,7 @@
                             @endforeach
                         </div>
                     @endif
-                    <form action="{{route('user.login')}}" method="POST">
+                    <form action="{{route('admin.categories.store')}}" method="POST">
                         @csrf
 
                         <div class="form-outline mb-4">
@@ -30,16 +30,19 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="active" checked>
+                            <input class="form-check-input" type="radio" name="status" value="active" checked>
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Active
                             </label>
                             </div>
                             <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="inactive">
+                            <input class="form-check-input" type="radio" name="status" value="inactive">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Inactive
-                            </label>
+                            </label><br>
+                            @error('status')
+                                <span class="text-danger font-italic">{{$message}}</span>
+                            @enderror
                         </div>
  
                         <div class="d-flex justify-content-end">

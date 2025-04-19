@@ -33,6 +33,22 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        try{
+            $request->validate([
+                'name'=>'required',
+                'status'=>'required'
+            ]);
+
+            Category::create([
+                'name'=>$request->name,
+                'status'=>$request->status,
+                'user_id'=>'2'
+            ]);
+        }
+        catch(Exception $errror){
+            dd($error->getmessage());
+        }
+        return $request;
     }
 
     /**
