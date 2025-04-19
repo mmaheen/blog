@@ -1,11 +1,11 @@
-@extends('frontend.components.layouts')
+@extends('backend.components.layouts')
 
 @section('title')
-    User Resgistration Form
+    Registration
 @endsection
 
 @section('content')
-    <section>
+<section>
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
             <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -24,7 +24,7 @@
                     @if(session('message'))
                         <div class="alert alert-success">{{session('message')}}</div>
                     @endif
-                    <form action="{{route('user.registration')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.registration')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-outline mb-4">
                             <input type="text" name="name" value="{{old('name')}}" placeholder="Enter your name" class="form-control form-control-lg" />
@@ -40,6 +40,17 @@
                             @error('email')
                                 <span class="text-danger font-italic">{{$message}}</span>
                             @enderror
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <select class="form-select" name="role" aria-label="Default select example">
+                                <option selected value="guest">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <label class="form-label">Role</label><br>
+                            <!-- @error('password')
+                                <span class="text-danger font-italic">{{$message}}</span>
+                            @enderror -->
                         </div>
 
                         <div class="form-outline mb-4">

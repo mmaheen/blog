@@ -30,6 +30,7 @@ class SiteController extends Controller
             'name'=>'required',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:2|max:20',
+            'confirm_password'=>'requird|same:password'
             // 'photo'=>'required|image'
         ],[
             'name.required'=>'Please enter your name',
@@ -46,7 +47,7 @@ class SiteController extends Controller
             $user->email=$request->email;
             $user->password=$request->password;
             $user->role='admin';
-            $user->password=bcrypt($request->password);
+            // $user->password=bcrypt($request->password);
             $user->save();
     
             // User::create([
