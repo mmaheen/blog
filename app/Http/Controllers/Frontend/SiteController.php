@@ -75,6 +75,15 @@ class SiteController extends Controller
             'password'=>'required'
         ]);
 
+        $credential=$request->only('email','password');
+        if(auth()->attempt($credential)){
+            // dd('ok');
+            return redirect()->route('admin.dashboard');
+        }
+        else{
+            return redirect()->back();
+        }
+
         // session->flash('message','User registration success');
         // return redirect()->back();
     }
