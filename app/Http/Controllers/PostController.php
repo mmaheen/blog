@@ -86,7 +86,7 @@ class PostController extends Controller
         if (File::exists($filePath)) {
             File::delete($filePath); // Deletes the file
         } else {
-            
+            session()->flash('post_file_delete','No files were here');
         }
 
         $post->delete();

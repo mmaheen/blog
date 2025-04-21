@@ -22,6 +22,10 @@
                 @if(session('post_delete'))
                     <div class="alert alert-success text-center">{{session('post_delete')}}</div>
                 @endif
+
+                @if(session('post_file_delete'))
+                    <div class="alert alert-success text-center">{{session('post_file_delete')}}</div>
+                @endif
                 <table id="datatablesSimple">
                     <thead>
                         <tr>

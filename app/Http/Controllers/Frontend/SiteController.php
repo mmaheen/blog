@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use Exception;
+use App\Models\Post;
 
 use App\Models\User;
+
 use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SiteController extends Controller
 {
     //
     public function index(){
         $categories=Category::select('name')->where('status','=','active')->get();
-        return view ('frontend.home',compact('categories'));
+        $posts=Post::all();
+        return view ('frontend.home',compact('categories','posts'));
     }
 
     public function showRegisterForm(){
