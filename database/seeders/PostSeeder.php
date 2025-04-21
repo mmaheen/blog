@@ -29,7 +29,7 @@ class PostSeeder extends Seeder
             Post::create([
                  'name'=>$faker->realText($maxNbChars=20,$indexSize=2),
                  'category_id'=>rand(1,10),
-                 'description'=>$faker->realText($maxNbChars = 2000, $indexSize = 2),
+                 'description'=>$faker->realText($maxNbChars = 10000, $indexSize = 2),
                  'photo'=>$filename
                  
             ]);

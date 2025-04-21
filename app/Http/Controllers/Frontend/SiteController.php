@@ -16,8 +16,9 @@ class SiteController extends Controller
     //
     public function index(){
         $categories=Category::select('name')->where('status','=','active')->get();
-        $posts=Post::all();
-        return view ('frontend.home',compact('categories','posts'));
+        $posts=Post::latest()->take(2)->get();
+        $olderPosts = Post::latest()->skip(2)->take(4)->get();
+        return view ('frontend.home',compact('categories','posts','olderPosts'));
     }
 
     public function showRegisterForm(){
