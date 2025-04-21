@@ -12,13 +12,16 @@
                     <h1 class="mt-4">Tables</h1>
                 </div>
                 <div class="col-sm d-flex justify-content-end">
-                    <a href="{{route('admin.categories.create')}}" class="mt-4 btn btn-link"><h5>Create Category</h5></a>
+                    <a href="{{route('admin.post.create')}}" class="mt-4 btn btn-link"><h5>Create new Post</h5></a>
                 </div>
             </div>
         </div>
         
         <div class="card mb-4">
             <div class="card-body">
+                @if(session('post_delete'))
+                    <div class="alert alert-success text-center">{{session('post_delete')}}</div>
+                @endif
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
@@ -54,7 +57,7 @@
                                                     Edit
                                                 </a>
                                             </div>
-                                            <div class="col sm">
+                                            <div class="col-sm">
                                                 <form action="{{route('admin.post.destroy', $post->id)}}" method="post">
                                                     @csrf 
                                                     @method('delete')

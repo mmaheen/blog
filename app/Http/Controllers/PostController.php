@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+use File;
+
 class PostController extends Controller
 {
     /**
@@ -78,6 +80,19 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
-        return 'Delete';
+        $post=Post::find($id);
+
+        $filePath = public_path('uploads/photo/').$post->photo; // Specify the file path
+        if (File::exists($filePath)) {
+            File::delete($filePath); // Deletes the file
+        } else {
+            
+        }
+
+        $post->delete();
+        session()->flash('post_delete','Post Deleted');
+
+
+        return redirect()->back();
     }
 }

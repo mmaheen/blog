@@ -30,13 +30,13 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" value="active" checked>
+                            <input class="form-check-input" type="radio" name="status" value="active" {{ old('status')==='active' ? 'checked':''}}>
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Active
                             </label>
                             </div>
                             <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" value="inactive">
+                            <input class="form-check-input" type="radio" name="status" value="inactive" {{old('status')==='inactive' ? 'checked':''}}>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Inactive
                             </label><br>
