@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-outline">
-                            <textarea class="form-control" placeholder="Enter your Post here" name="detail" rows="12"></textarea>
+                            <textarea class="form-control" placeholder="Enter your Post here" name="description" rows="12"></textarea>
                             <label class="form-label">Message</label>
                         </div>
 

@@ -13,7 +13,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('backend.post.index');
+        $posts=Post::all();
+        return view('backend.post.index',compact('posts'));
     }
 
     /**
@@ -38,10 +39,11 @@ class PostController extends Controller
         }
         
         $post=New Post;
-
+        $post->name=$request->name;
+        $post->description=$request->description;
         $post->photo=$photo;
         $post->save();
-        return $request->photo;
+        return redirect()->route('admin.post.index');
 
     }
 
