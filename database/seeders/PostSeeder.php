@@ -21,7 +21,7 @@ class PostSeeder extends Seeder
         
 
         $faker=Factory::create();
-        foreach(range(1,10) as $index){
+        foreach(range(1,30) as $index){
             $files = File::files(public_path('uploads/photo')); // Get all files in the public directory
             $randomFile = $files[array_rand($files)]; // Select a random file
             $filename = $randomFile->getFilename(); //random file name

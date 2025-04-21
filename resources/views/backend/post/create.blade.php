@@ -37,7 +37,9 @@
                         <div class="form-outline mb-4">
                             <select class="form-select" name="category" aria-label="Default select example">
                                 <option selected value="guest">Select post Category</option>
-                                <option value="admin">Admin</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
                             <label class="form-label">Category</label><br>
                             <!-- @error('password')

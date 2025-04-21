@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
-
 use File;
+use App\Models\Post;
+
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -25,7 +26,8 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('backend.post.create');
+        $categories=Category::all();
+        return view('backend.post.create',compact('categories'));
     }
 
     /**
@@ -34,6 +36,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        // return $request;
         $photo=null;
         if(isset($request->photo)){   
             $photo=time().'.'.$request->photo->extension();
@@ -42,6 +45,7 @@ class PostController extends Controller
         
         $post=New Post;
         $post->name=$request->name;
+        $post->category_id=$request->category;
         $post->description=$request->description;
         $post->photo=$photo;
         $post->save();

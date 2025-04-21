@@ -32,6 +32,7 @@
                             <th>Index</th>
                             <th>Name</th>
                             <th>Photo</th>
+                            <th>Category</th>
                             <th>Description</th>
                             <th>Action</th>
                         </tr>
@@ -41,6 +42,7 @@
                             <th>Index</th>
                             <th>Name</th>
                             <th>Photo</th>
+                            <th>Category</th>
                             <th>Description</th>
                             <th>Action</th>
                         </tr>
@@ -52,6 +54,7 @@
                                 <td>{{++$loop->index}}</td>
                                 <td>{{$post->name}}</td>
                                 <td><img src="{{asset('uploads/photo')}}/{{$post->photo}}" width = "100px" alt=""></td>
+                                <td>{{$post->category->name}}</td>
                                 <td>{{$post->description}}</td>
                                 <td>
                                     <div class="container">

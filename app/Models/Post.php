@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -13,4 +14,8 @@ class Post extends Model
         'photo'
 
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
