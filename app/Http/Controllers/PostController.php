@@ -16,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts=Post::all();
+        $posts=Post::with('category')->paginate(5); //pagination
+        $posts=Post::with('category')->get(); //eager loading. with('funtion name in model')
         return view('backend.post.index',compact('posts'));
     }
 
