@@ -51,7 +51,7 @@
                         
                             @foreach($posts as $post)
                             <tr>
-                                <td>{{++$loop->index}}</td>
+                                <td>{{$post->id}}</td>
                                 <td>{{$post->name}}</td>
                                 <td><img src="{{asset('uploads/photo')}}/{{$post->photo}}" width = "100px" alt=""></td>
                                 <td>{{$post->category->name}}</td>

@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         //
         // $posts=Post::with('category')->paginate(5); //pagination
-        $posts=Post::with('category')->get(); //eager loading. with('funtion name in model')
+        $posts=Post::with('category')->orderBy('id','DESC')->get(); //eager loading. with('funtion name in model')
         return view('backend.post.index',compact('posts'));
     }
 
@@ -38,10 +38,10 @@ class PostController extends Controller
     {
         //
         // return $request;
-        $photo='';
+        $photo=null;
         if(isset($request->photo)){   
-            $photo=time().'.'.$request->photo->extension();
-            $request->photo->move(public_path('uploads/photo'),$photo);
+            $photo=time().'.'.$request->photo->extension();     //photo name
+            $request->photo->move(public_path('uploads/photo'),$photo);     //Store into public directory
         }
         
         $post=New Post;
