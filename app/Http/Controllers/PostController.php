@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -30,7 +31,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        return $request;
+        $photo=null;
+        if(isset($request->photo)){   
+            $photo=time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('uploads/photo'),$photo);
+        }
+        
+        $post=New Post;
+
+        $post->photo=$photo;
+        $post->save();
+        return $request->photo;
+
     }
 
     /**
