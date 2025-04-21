@@ -18,13 +18,14 @@ class PostSeeder extends Seeder
     {
         //
 
-        $files = File::files(public_path('uploads/photo')); // Get all files in the public directory
-        $randomFile = $files[array_rand($files)]; // Select a random file
-
-        $filename = $randomFile->getFilename();
+        
 
         $faker=Factory::create();
         foreach(range(1,10) as $index){
+            $files = File::files(public_path('uploads/photo')); // Get all files in the public directory
+            $randomFile = $files[array_rand($files)]; // Select a random file
+            $filename = $randomFile->getFilename(); //random file name
+
             Post::create([
                  'name'=>$faker->realText($maxNbChars=20,$indexSize=2),
                  'description'=>$faker->realText($maxNbChars = 200, $indexSize = 2),
