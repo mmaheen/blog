@@ -38,7 +38,7 @@ class PostController extends Controller
     {
         //
         // return $request;
-        $photo=null;
+        $photo='';
         if(isset($request->photo)){   
             $photo=time().'.'.$request->photo->extension();
             $request->photo->move(public_path('uploads/photo'),$photo);
