@@ -9,10 +9,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <h1 class="mt-4">Post Tables</h1>
+                    <h1 class="mt-4">Tables</h1>
                 </div>
                 <div class="col-sm d-flex justify-content-end">
-                    <a href="{{route('admin.post.create')}}" class="mt-4 btn btn-link"><h5>Create Post</h5></a>
+                    <a href="{{route('admin.categories.create')}}" class="mt-4 btn btn-link"><h5>Create Category</h5></a>
                 </div>
             </div>
         </div>
@@ -23,30 +23,29 @@
                     <thead>
                         <tr>
                             <th>Index</th>
-                            <th>Image</th>
                             <th>Name</th>
-                            <th>Category</th>
+                            <th>Photo</th>
                             <th>Description</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Index</th>
-                            <th>Image</th>
                             <th>Name</th>
-                            <th>Category</th>
+                            <th>Photo</th>
                             <th>Description</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         
-                            @foreach($posts as $category)
+                            @foreach($posts as $post)
                             <tr>
                                 <td>{{++$loop->index}}</td>
-                                <td>{{$category->photo}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>K</td>
-                                <td>{{$category->description}}</td>
+                                <td>{{$post->name}}</td>
+                                <td><img src="{{asset('uploads/photo')}}/{{$post->photo}}" width = "100px" alt=""></td>
+                                <td>{{$post->description}}</td>
                                 <td>
                                     <div class="container">
                                         <div class="row">
@@ -56,7 +55,7 @@
                                                 </button>
                                             </div>
                                             <div class="col sm">
-                                                <form action="{{route('admin.categories.destroy', $category->id)}}" method="post">
+                                                <form action="{{route('admin.post.destroy', $post->id)}}" method="post">
                                                     @csrf 
                                                     @method('delete')
                                                     <button class="btn btn-danger">

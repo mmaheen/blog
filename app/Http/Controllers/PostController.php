@@ -61,6 +61,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         //
+        return 'Edit';
     }
 
     /**
@@ -77,5 +78,6 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+        return 'Delete';
     }
 }
