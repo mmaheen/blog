@@ -50,9 +50,9 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm">
-                                                <button class="btn btn-secondary">
+                                                <a href="{{route('admin.post.edit',$post->id)}}" class="btn btn-secondary">
                                                     Edit
-                                                </button>
+                                                </a>
                                             </div>
                                             <div class="col sm">
                                                 <form action="{{route('admin.post.destroy', $post->id)}}" method="post">
