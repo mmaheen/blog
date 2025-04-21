@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts=Post::with('category')->paginate(5); //pagination
+        // $posts=Post::with('category')->paginate(5); //pagination
         $posts=Post::with('category')->get(); //eager loading. with('funtion name in model')
         return view('backend.post.index',compact('posts'));
     }
@@ -61,7 +61,7 @@ class PostController extends Controller
     {
         //
         $post=Post::find($id);
-        return $post;
+        return view('backend.post.show',compact('post'));
     }
 
     /**

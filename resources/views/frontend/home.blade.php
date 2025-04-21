@@ -105,7 +105,7 @@
                             <div class="col-sm-10">
                                 <ul class="list-unstyled mb-0">              
                                     @foreach($categories as $category)
-                                        <li><a href="#!">{{$category->name}}</a></li>
+                                        <li><a href="{{route('admin.categories.show',$category->id)}}">{{$category->name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
