@@ -101,4 +101,9 @@ class SiteController extends Controller
         $post=Post::find($id);
         return view('frontend.postshow',compact('post'));
     }
+
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('index');
+    }
 }

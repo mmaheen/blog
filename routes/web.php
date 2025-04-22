@@ -14,6 +14,7 @@ Route::prefix('user')->name('user.')->group(function(){
     Route::post('/register',[SiteController::class,'registration'])->name('registration');
     Route::get('/login',[SiteController::class,'showLoginForm'])->name('login');
     Route::post('/login',[SiteController::class,'login'])->name('loginpost');
+    Route::get('/logout',[SiteController::class,'logout'])->name('logout');
 
 });
 

@@ -8,7 +8,16 @@
                 <!-- <li class="nav-item"><a class="nav-link" href="#">Home</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{route('user.login')}}">Login</a></li>
+                @if(auth()->user())
+                    <li class="nav-item">
+                        <form action="{{route('user.logout')}}" method="POST">
+                            <a class="nav-link active" href="{{route('user.logout')}}" onclick="event.preventDefault();this->closest('form').submit()">
+                                Log out
+                            </a>
+                        </form></li>
+                @else
+                    <li class="nav-item"><a class="nav-link active" href="{{route('user.login')}}">Login</a></li>
+                @endif
                 <li class="nav-item"><a class="nav-link" href="{{route('user.register')}}">Register</a></li>
             </ul>
         </div>
