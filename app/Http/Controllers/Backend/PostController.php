@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
 
 use File;
 use App\Models\Post;
@@ -61,7 +63,6 @@ class PostController extends Controller
     {
         //
         $post=Post::find($id);
-        return view('frontend.postshow',compact('post'));
     }
 
     /**

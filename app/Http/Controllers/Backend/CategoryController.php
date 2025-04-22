@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
@@ -59,7 +61,6 @@ class CategoryController extends Controller
         //
         $category=Category::find($id);
         $posts=$category->post;
-        return view('frontend.categoryshow',compact('posts'));
     }
 
     /**

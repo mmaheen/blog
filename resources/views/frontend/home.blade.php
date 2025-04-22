@@ -26,7 +26,7 @@
                         <h4 class="card-subtitle">{{$post->category->name}}</h4>
                         <p class="card-text">{{substr($post->description, 0, 550)}}</p>
                         @if (strlen($post->description) > 100)
-                            <a class="btn btn-primary" href="{{route('admin.post.show',$post->id)}}">Read more →</a>
+                            <a class="btn btn-primary" href="{{route('index.post.show',$post->id)}}">Read more →</a>
                         @endif          
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                                 <h2 class="card-title h4">{{$post->name}}</h2>
                                 <p class="card-text">{{substr($post->description, 0, 250)}}</p>
                                 @if (strlen($post->description) > 100)
-                                    <a class="btn btn-primary" href="{{route('admin.post.show',$post->id)}}">Read more →</a>
+                                    <a class="btn btn-primary" href="{{route('index.post.show',$post->id)}}">Read more →</a>
                                 @endif 
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                             <div class="col-sm-10">
                                 <ul class="list-unstyled mb-0">              
                                     @foreach($categories as $category)
-                                        <li><a href="{{route('admin.categories.show',$category->id)}}">{{$category->name}}</a></li>
+                                        <li><a href="{{route('index.category.show',$category->id)}}">{{$category->name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>

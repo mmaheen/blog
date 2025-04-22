@@ -90,4 +90,15 @@ class SiteController extends Controller
         // session->flash('message','User registration success');
         // return redirect()->back();
     }
+
+    public function categoryShow(string $id){
+        $category=Category::find($id);
+        $posts=$category->post;
+        return view('frontend.categoryshow',compact('posts'));
+    }
+
+    public function postShow(string $id){
+        $post=Post::find($id);
+        return view('frontend.postshow',compact('post'));
+    }
 }

@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Frontend\SiteController;
 
 Route::get('/',[SiteController::class,'index'])->name('index');
+Route::get('/post/show/{post}',[SiteController::class,'postShow'])->name('index.post.show');
+Route::get('/category/show/{category}',[SiteController::class,'categoryShow'])->name('index.category.show');
 
 Route::prefix('user')->name('user.')->group(function(){
     Route::get('/register',[SiteController::class,'showRegisterForm'])->name('register');
