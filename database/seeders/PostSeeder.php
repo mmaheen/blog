@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
+use File;
 use Faker\Factory;
 use App\Models\Post;
+use App\Models\Category;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use File;
 
 class PostSeeder extends Seeder
 {
@@ -18,7 +19,8 @@ class PostSeeder extends Seeder
     {
         //
 
-        
+        $category = Category::select('id')->get();  
+        $category_count= count($category);
 
         $faker=Factory::create();
         foreach(range(1,80) as $index){
@@ -28,7 +30,7 @@ class PostSeeder extends Seeder
 
             Post::create([
                  'name'=>$faker->realText($maxNbChars=20,$indexSize=2),
-                 'category_id'=>rand(1,10),
+                 'category_id'=>rand(1,$category_count),
                  'description'=>$faker->realText($maxNbChars = 10000, $indexSize = 2),
                  'photo'=>$filename
                  
