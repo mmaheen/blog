@@ -33,7 +33,7 @@ class SiteController extends Controller
             'name'=>'required',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:2|max:20',
-            'confirm_password'=>'requird|same:password'
+            'confirm_password'=>'required|same:password'
             // 'photo'=>'required|image'
         ],[
             'name.required'=>'Please enter your name',
@@ -46,7 +46,7 @@ class SiteController extends Controller
             // $photo->storeAs('images',$file_name);
            
             $user=new User();
-            $user->name=$request->name;
+            $user->name=$request->name; 
             $user->email=$request->email;
             $user->password=$request->password;
             $user->role='admin';
