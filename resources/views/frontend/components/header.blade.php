@@ -6,6 +6,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <!-- <li class="nav-item"><a class="nav-link" href="#">Home</a></li> -->
+                 @if(auth()->user())
+                    <li class="nav-item"><a class="nav-link active" href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                 @endif
                 <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                 @if(auth()->user())
@@ -17,8 +20,9 @@
                         </form></li>
                 @else
                     <li class="nav-item"><a class="nav-link active" href="{{route('user.login')}}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.register')}}">Register</a></li>
                 @endif
-                <li class="nav-item"><a class="nav-link" href="{{route('user.register')}}">Register</a></li>
+                
             </ul>
         </div>
     </div>
