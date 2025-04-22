@@ -16,8 +16,8 @@ class SiteController extends Controller
     //
     public function index(){
         $categories=Category::select('id','name')->where('status','=','active')->get(); //Just selecting id and name column from Category table
-        $posts=Post::latest()->take(2)->get();
-        $olderPosts = Post::latest()->skip(2)->take(4)->get();
+        $posts=Post::latest()->with('category')->take(2)->get();
+        $olderPosts = Post::latest()->with('category')->skip(2)->take(4)->get();
         return view ('frontend.home',compact('categories','posts','olderPosts'));
     }
 

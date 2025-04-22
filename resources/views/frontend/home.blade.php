@@ -23,6 +23,7 @@
                     <div class="card-body">
                         <div class="small text-muted">{{$post->created_at}}</div>
                         <h2 class="card-title">{{$post->name}}</h2>
+                        <h4 class="card-subtitle">{{$post->category->name}}</h4>
                         <p class="card-text">{{substr($post->description, 0, 550)}}</p>
                         @if (strlen($post->description) > 100)
                             <a class="btn btn-primary" href="{{route('admin.post.show',$post->id)}}">Read more →</a>
