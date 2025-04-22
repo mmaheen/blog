@@ -58,7 +58,8 @@ class CategoryController extends Controller
     {
         //
         $category=Category::find($id);
-        return $category->post;
+        $posts=$category->post;
+        return view('frontend.categoryshow',compact('posts'));
     }
 
     /**
