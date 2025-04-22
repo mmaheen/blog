@@ -8,8 +8,8 @@
                 <!-- <li class="nav-item"><a class="nav-link" href="#">Home</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{route('user.loginform')}}">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('user.registerform')}}">Register</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{route('user.login')}}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('user.register')}}">Register</a></li>
             </ul>
         </div>
     </div>
